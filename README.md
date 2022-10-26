@@ -5,8 +5,8 @@ Architecture MVC + DAO
 # 1 Gesture au choix 
 swipe
 # Données distantes au choix (au moins 2)
-Service de données XML ou JSON
-Infonuagique tel que Firestore, etc.
+Service de données JSON
+Base de donnée sur vps
 # cLibrairie graphique externe au choix 
 Google Map
 # 1 Composant de l’appareil au choix
