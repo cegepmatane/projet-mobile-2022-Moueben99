@@ -7,7 +7,7 @@ swipe
 # Données distantes au choix (au moins 2)
 Service de données JSON
 Base de donnée sur vps
-# cLibrairie graphique externe au choix 
+# Librairie graphique externe au choix 
 Google Map
 # 1 Composant de l’appareil au choix
 Capteur: gps
