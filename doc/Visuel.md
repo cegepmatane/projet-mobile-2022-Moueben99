@@ -13,3 +13,7 @@
 # Ajouter endroit
 
 ![image](https://github.com/cegepmatane/projet-mobile-2022-Moueben99/blob/master/doc/maquette/maquette-page-ajouter-endroit.png)
+
+# Storyboard
+
+![image](https://github.com/cegepmatane/projet-mobile-2022-Moueben99/blob/master/doc/maquette/Storyboard-Application.png)
