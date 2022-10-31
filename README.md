@@ -10,5 +10,5 @@ Base de donnée sur vps pour permettre aux utilisateurs ajouter et lister les en
 # Librairie graphique externe au choix 
 Google Map pour afficher les positions des endroits
 # 1 Composant de l’appareil au choix
-Capteur: gps
-photos enregistrées (possiblement)
+Capteur: gps pour ajouter la position courrante
+photos enregistrées (possiblement) pour ajouter les photos à partir de l'appareil
