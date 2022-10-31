@@ -3,7 +3,7 @@ Application permettant d'ajouter des lieux visité, avec un plan google maps et 
 # Architecture imposée Cordova
 Architecture MVC + DAO 
 # 1 Gesture au choix 
-swipe
+swipe entre les photos
 # Données distantes au choix (au moins 2)
 Service de données JSON
 Base de donnée sur vps
