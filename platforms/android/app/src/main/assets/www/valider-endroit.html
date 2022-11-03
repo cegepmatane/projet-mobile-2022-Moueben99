@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Page Valider Un Endroit</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="decoration/css/bootstrap.min.css" >
+    <!-- Fonts -->
+    <link rel="stylesheet" type="text/css" href="decoration/fonts/line-icons.css">
+    <!-- Slicknav -->
+    <link rel="stylesheet" type="text/css" href="decoration/css/slicknav.css">
+    <!-- Off Canvas Menu -->
+    <link rel="stylesheet" type="text/css" href="decoration/css/menu_sideslide.css">
+    <!-- Color Switcher -->
+    <link rel="stylesheet" type="text/css" href="decoration/css/vegas.min.css">
+    <!-- Animate -->
+    <link rel="stylesheet" type="text/css" href="decoration/css/animate.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" type="text/css" href="decoration/css/main.css">
+    <!-- Responsive Style -->
+    <link rel="stylesheet" type="text/css" href="decoration/css/responsive.css">
+
+  </head>
+  <body>
+
+    <div class="bg-wraper overlay has-vignette">
+      <div id="example" class="slider opacity-50 vegas-container" style="height: 983px;"></div>
+    </div>
+
+    <!-- Coundown Section Start -->
+    <section class="countdown-timer">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="heading-count">
+              <h2>Valider un endroit</h2>
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <!--<div class="row time-countdown justify-content-center">
+              <div id="clock" class="time-count"></div>
+            </div>-->
+            <p>Bravo Benjamin !</p></br>
+            <!--Les quatres champs avec Bootstrap-->
+            <div class="mb-3 row">
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" value="Votre endroit le parc des îles de Matane a bien été ajouter !" aria-label="readonly input example" readonly>
+                </div>
+            </div>
+
+            <div class="button-group">
+              <a href="index.html" class="btn btn-border">Quitter</a>
+            </div>
+
+            <div class="social mt-4">
+              <a class="facebook" href="#"><i class="lni-facebook-filled"></i></a>
+              <a class="twitter" href="#"><i class="lni-twitter-filled"></i></a>
+              <a class="instagram" href="#"><i class="lni-instagram-filled"></i></a>
+              <a class="google" href="#"><i class="lni-google-plus"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Coundown Section End -->
+
+    <!-- Preloader -->
+    <div id="preloader">
+      <div class="loader" id="loader-1"></div>
+    </div>
+    <!-- End Preloader -->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/vegas.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/jquery.nav.js"></script>
+    <script src="js/jquery.easing.min.js"></script> 
+    <script src="js/wow.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/form-validator.min.js"></script>
+    <script src="js/contact-form-script.min.js"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+
+    <script type="text/javascript">
+      $("#example").vegas({
+          timer: false,
+          delay: 6000,
+          transitionDuration: 2000,
+          transition: "blur",
+          slides: [
+              { src: "decoration/illustration/img1.jpg" },
+              { src: "decoration/illustration/img2.jpg" },
+              { src: "decoration/illustration/img3.jpg" }
+          ]
+      });
+    </script>
+      
+  </body>
+</html>
