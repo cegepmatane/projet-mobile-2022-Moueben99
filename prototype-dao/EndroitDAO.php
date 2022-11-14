@@ -1,11 +1,10 @@
 <?php
 class EndroitDAO extends Connexion implements EndroitSQL{
 
-    public static function listerEndroit($idEndroit){
+    public static function listerEndroit(){
 
         $basededonnees = EndroitDAO::initialiser();
-        $demandeContrats = $basededonnees->prepare('SELECT * FROM endroit WHERE id = :id');
-        $demandeContrats->bindParam(':id', $idEndroit, PDO::PARAM_INT);
+        $demandeContrats = $basededonnees->prepare('SELECT * FROM endroit');
         $demandeContrats->execute();
         $endroits = $demandeContrats->fetchAll(PDO::FETCH_ASSOC);
         $contrats = [];
@@ -15,11 +14,11 @@ class EndroitDAO extends Connexion implements EndroitSQL{
     }
 
 
-    public static function listerDetailEndroit($detailEndroit){
+    public static function listerDetailEndroit($id){
 
         $basededonnees = EndroitDAO::initialiser();
-        $demandeContrats = $basededonnees->prepare('SELECT * FROM endroit WHERE detail_endroit = :detail_endroit');
-        $demandeContrats->bindParam(':detail_endroit', $detailEndroit, PDO::PARAM_INT);
+        $demandeContrats = $basededonnees->prepare('SELECT * FROM endroit WHERE id = :id');
+        $demandeContrats->bindParam(':id', $id, PDO::PARAM_INT);
         $demandeContrats->execute();
         $endroits = $demandeContrats->fetchAll(PDO::FETCH_ASSOC);
         $contrats = [];
