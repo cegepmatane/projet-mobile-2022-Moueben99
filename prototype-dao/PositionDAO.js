@@ -1,4 +1,10 @@
 class PositionDAO {
 
+    listerPositionEndoroit(){
 
+    }
+
+    ajouterPosition(){
+        
+    }
 }

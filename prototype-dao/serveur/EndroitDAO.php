@@ -13,7 +13,6 @@ class EndroitDAO extends Connexion implements EndroitSQL{
         return $json;
     }
 
-
     public static function listerDetailEndroit($id){
 
         $basededonnees = EndroitDAO::initialiser();
