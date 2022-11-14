@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Page Ajouter Un Endroit</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="decoration/css/bootstrap.min.css" >
+    <!-- Fonts -->
+    <link rel="stylesheet" type="text/css" href="decoration/fonts/line-icons.css">
+    <!-- Slicknav -->
+    <link rel="stylesheet" type="text/css" href="decoration/css/slicknav.css">
+    <!-- Off Canvas Menu -->
+    <link rel="stylesheet" type="text/css" href="decoration/css/menu_sideslide.css">
+    <!-- Color Switcher -->
+    <link rel="stylesheet" type="text/css" href="decoration/css/vegas.min.css">
+    <!-- Animate -->
+    <link rel="stylesheet" type="text/css" href="decoration/css/animate.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" type="text/css" href="decoration/css/main.css">
+    <!-- Responsive Style -->
+    <link rel="stylesheet" type="text/css" href="decoration/css/responsive.css">
+
+  </head>
+  <body>
+
+        <div class="bg-wraper overlay has-vignette">
+        <div id="example" class="slider opacity-50 vegas-container" style="height: 983px;"></div>
+        </div>
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="js/jquery-min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/vegas.min.js"></script>
+        <script src="js/jquery.countdown.min.js"></script>
+        <script src="js/classie.js"></script>
+        <script src="js/jquery.nav.js"></script>
+        <script src="js/jquery.easing.min.js"></script> 
+        <script src="js/wow.js"></script>
+        <script src="js/jquery.slicknav.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/form-validator.min.js"></script>
+        <script src="js/contact-form-script.min.js"></script>
+        <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+
+
+
+        <!--Script pour la geolocalisation à l'emplacement de l'utilisateur-->
+        <script>
+            if(typeof navigator.geolocation == 'undefined')
+              alert("Géolocalisation non prise en charge.")
+            else 
+              navigator.geolocation.getCurrentPosition(autorise, refuse)
+
+            function autorise(position)
+            {
+              var lat = position.coords.latitude
+              var lon = position.coords.longitude
+
+              alert("Permission accordée. Vous êtes ici :\n\n"
+                + lat + ", " + lon +
+                "\n\nCliquez sur << OK >> pour ouvrir Google Maps à votre emplacement")
+
+              window.location.replace("https://www.google.com/maps/@"
+                + lat + "," + lon + ",10z")
+            }
+
+            function refuse(error)
+            {
+              var message
+              
+              switch (error.code) {
+                case 1: message = 'Permission refusée';
+                  break;
+                case 2: message = 'Position non disponible';
+                  break;
+                case 3: message = 'Dépassement de délai';
+                  break;
+                case 4: message = 'Erreur inconnue';
+                  break;
+              }
+              alert("Erreur de géolocalisation : " + message)
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+        $("#example").vegas({
+            timer: false,
+            delay: 6000,
+            transitionDuration: 2000,
+            transition: "blur",
+            slides: [
+                { src: "decoration/illustration/img1.jpg" },
+                { src: "decoration/illustration/img2.jpg" },
+                { src: "decoration/illustration/img3.jpg" }
+            ]
+        });
+        </script>
+  
+    </body>
+</html>
