@@ -26,6 +26,8 @@
      <link rel="stylesheet" type="text/css" href="decoration/css/main.css">
      <!-- Responsive Style -->
      <link rel="stylesheet" type="text/css" href="decoration/css/responsive.css">
+     <!--Gesture Rotation-->
+    <link rel="stylesheet" type="text/css" href="./decoration/css/gesture_rotate.css">
 </head>
 <body class="bg-dark mt-2 text-white lead text-center mx-2">
     <h1>Endroit 1</h1>
@@ -39,50 +41,51 @@
             <a class="" href="decoration/illustration/exemple2.jpg" data-lightbox="endroit" data-title="">
                 <img class="img-fluid" src="decoration/illustration/exemple2.jpg" alt=""/>
             </a>
+        </div>
+        <div class="range-images">
+            <a class="" href="decoration/illustration/exemple2.jpg" data-lightbox="endroit" data-title="">
+                <img class="img-fluid" src="decoration/illustration/exemple2.jpg" alt=""/>
+            </a>
+            <a class="" href="decoration/illustration/exemple.jpg" data-lightbox="endroit" data-title="">
+                <img class="img-fluid" src="decoration/illustration/exemple.jpg" alt=""/>
+            </a>
+        </div>
 
-            <script>
-                document.addEventListener('swiperight',
-                function() {
-                console.log('Got that Swipe Right');
-                }
-                );
-            </script>
-        </div>
         <div class="range-images">
-            <a class="" href="decoration/illustration/exemple2.jpg" data-lightbox="endroit" data-title="">
-                <img class="img-fluid" src="decoration/illustration/exemple2.jpg" alt=""/>
-            </a>
-            <a class="" href="decoration/illustration/exemple.jpg" data-lightbox="endroit" data-title="">
-                <img class="img-fluid" src="decoration/illustration/exemple.jpg" alt=""/>
-            </a>
-        </div>
-        <div class="range-images">
-            <a class="" href="decoration/illustration/exemple.jpg" data-lightbox="endroit" data-title="">
-                <img class="img-fluid" src="decoration/illustration/exemple.jpg" alt=""/>
-            </a>
-            <a class="" href="decoration/illustration/exemple2.jpg" data-lightbox="endroit" data-title="">
-                <img class="img-fluid" src="decoration/illustration/exemple2.jpg" alt=""/>
-            </a>
+            <div id="rotate-container">
+                <div id="rotatable">
+                    <a class="" href="decoration/illustration/exemple.jpg" data-lightbox="endroit" data-title="">
+                        <img class="img-fluid" src="decoration/illustration/exemple.jpg" alt=""/>
+                    </a>
+                    <a class="" href="decoration/illustration/exemple2.jpg" data-lightbox="endroit" data-title="">
+                        <img class="img-fluid" src="decoration/illustration/exemple2.jpg" alt=""/>
+                    </a>
+                </div>
+            </div>
+            <div id="interaction"></div>
         </div>
     </div>
 
     <a type="button" class="btn btn-success mt-1 col-5" href="index.html">Revenir à la liste</a>
     
+    
     <script src="https://kit.fontawesome.com/4901acba97.js" crossorigin="anonymous"></script>
     <script src="js/lightbox-plus-jquery.min.js"></script>
-      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <script src="js/jquery-min.js"></script>
-      <script src="js/popper.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/vegas.min.js"></script>
-      <script src="js/jquery.countdown.min.js"></script>
-      <script src="js/classie.js"></script>
-      <script src="js/jquery.nav.js"></script>
-      <script src="js/jquery.easing.min.js"></script> 
-      <script src="js/wow.js"></script>
-      <script src="js/jquery.slicknav.js"></script>
-      <script src="js/main.js"></script>
-      <script src="js/form-validator.min.js"></script>
-      <script src="js/contact-form-script.min.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src='./js/zingtouch.js'></script>
+    <script src="./js/gesture-rotate.js"></script>
+    <script src="js/jquery-min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/vegas.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/jquery.nav.js"></script>
+    <script src="js/jquery.easing.min.js"></script> 
+    <script src="js/wow.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/form-validator.min.js"></script>
+    <script src="js/contact-form-script.min.js"></script>
 </body>
 </html>

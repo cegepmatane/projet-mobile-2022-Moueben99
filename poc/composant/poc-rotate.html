@@ -1,0 +1,32 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Where's the spot ?</title>
+
+    <!--Gesture Rotation-->
+    <link rel="stylesheet" type="text/css" href="gesture_rotate.css">
+
+</head>
+<body class="bg-dark mt-2 text-white lead text-center mx-2">
+    <h1>Endroit 1</h1>
+    <p class="mt-2 mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+
+    <!-- Partie gesture rotation de l'image -->
+    <div id="wrapper">
+        <div id="rotate-container">
+            <div id="rotatable">
+                <div style="text-align:center;">Tourne moi <br> <span style="font-size:0.5em">(1 ou 2-Doigts)</span><br><i class="fa fa-undo" aria-hidden="true"></i></div>
+            </div>
+        </div>
+        <div id="output">> La meta d'interraction sortira ici.</div>
+    </div>
+    <div id="interaction" style=""></div>
+
+
+    <script src="zingtouch.js"></script>
+    <script src="gesture-rotate.js"></script>
+</body>
+</html>
