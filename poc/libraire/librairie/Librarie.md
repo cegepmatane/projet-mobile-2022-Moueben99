@@ -1,1 +1,3 @@
-![image](https://github.com/cegepmatane/projet-mobile-2022-Moueben99/blob/master/poc/libraire/librairie/google-maps.png)
+![image](paperjs.png)
+
+Image animer en arrière plan avec texte exemple par dessus.

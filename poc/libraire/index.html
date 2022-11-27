@@ -1,60 +1,171 @@
 <!DOCTYPE html>
-<!--
- @license
- Copyright 2019 Google LLC. All Rights Reserved.
- SPDX-License-Identifier: Apache-2.0
--->
-<html>
-  <head>
-    <title>Add Map</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script>
-      function initMap() {
-        // The location of Uluru
-        const uluru = { lat: -25.344, lng: 131.031 };
-        // The map, centered at Uluru
-        const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 4,
-          center: uluru,
-        });
-        // The marker, positioned at Uluru
-        const marker = new google.maps.Marker({
-          position: uluru,
-          map: map,
-        });
-      }
-    
-       window.initMap = initMap;
-     </script>
-  </head>
-  <style>
-  /**
-    * @license
-    * Copyright 2019 Google LLC. All Rights Reserved.
-    * SPDX-License-Identifier: Apache-2.0
-    */
-   /* Set the size of the div element that contains the map */
-   #map {
-     height: 400px;
-     /* The height is 400 pixels */
-     width: 100%;
-     /* The width is the width of the web page */
-   }
-   </style>
-  <body>
-    <h3>My Google Maps Demo</h3>
-    <!--The div element for the map -->
-    <div id="map"></div>
+<html lang="ja">
+<style>
+    html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  position:absolute;
+   left:0;
+   top:0;
+   z-index:-1;
+}
+#fillCanvas {
+	position:fixed;
+    width: 100%; 
+	height: 2200px; 
+	background: #000; 
+}
+</style>
 
-    <!-- 
-     The `defer` attribute causes the callback to execute after the full HTML
-     document has been parsed. For non-blocking uses, avoiding race conditions,
-     and consistent behavior across browsers, consider loading using Promises
-     with https://www.npmjs.com/package/@googlemaps/js-api-loader.
-    -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcYXnLrNj1b0j4xm1OCdwFL9_G6-i7F-Q&callback=initMap&v=weekly"
-      defer
-    ></script>
-  </body>
+<body>
+<canvas id="fillCanvas"></canvas>
+
+<h1>testvfehvbfhs</h1>
+
+	<script src=" https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.15/paper-full.min.js"></script>
+
+<script type="text/paperscript" canvas="fillCanvas">
+  
+// kynd.info 2014
+
+function Ball(r, p, v) {
+	this.radius = r;
+	this.point = p;
+	this.vector = v;
+	this.maxVec = 15;
+	this.numSegment = Math.floor(r / 3 + 2);
+	this.boundOffset = [];
+	this.boundOffsetBuff = [];
+	this.sidePoints = [];
+	this.path = new Path({
+		fillColor: {
+			hue: Math.random() * 360,
+			saturation: 1,
+			brightness: 1
+		},
+		blendMode: 'lighter'
+	});
+
+	for (var i = 0; i < this.numSegment; i ++) {
+		this.boundOffset.push(this.radius);
+		this.boundOffsetBuff.push(this.radius);
+		this.path.add(new Point());
+		this.sidePoints.push(new Point({
+			angle: 360 / this.numSegment * i,
+			length: 1
+		}));
+	}
+}
+
+Ball.prototype = {
+	iterate: function() {
+		this.checkBorders();
+		if (this.vector.length > this.maxVec)
+			this.vector.length = this.maxVec;
+		this.point += this.vector;
+		this.updateShape();
+	},
+
+	checkBorders: function() {
+		var size = view.size;
+		if (this.point.x < -this.radius)
+			this.point.x = size.width + this.radius;
+		if (this.point.x > size.width + this.radius)
+			this.point.x = -this.radius;
+		if (this.point.y < -this.radius)
+			this.point.y = size.height + this.radius;
+		if (this.point.y > size.height + this.radius)
+			this.point.y = -this.radius;
+	},
+
+	updateShape: function() {
+		var segments = this.path.segments;
+		for (var i = 0; i < this.numSegment; i ++)
+			segments[i].point = this.getSidePoint(i);
+
+		this.path.smooth();
+		for (var i = 0; i < this.numSegment; i ++) {
+			if (this.boundOffset[i] < this.radius / 4)
+				this.boundOffset[i] = this.radius / 4;
+			var next = (i + 1) % this.numSegment;
+			var prev = (i > 0) ? i - 1 : this.numSegment - 1;
+			var offset = this.boundOffset[i];
+			offset += (this.radius - offset) / 15;
+			offset += ((this.boundOffset[next] + this.boundOffset[prev]) / 2 - offset) / 3;
+			this.boundOffsetBuff[i] = this.boundOffset[i] = offset;
+		}
+	},
+
+	react: function(b) {
+		var dist = this.point.getDistance(b.point);
+		if (dist < this.radius + b.radius && dist != 0) {
+			var overlap = this.radius + b.radius - dist;
+			var direc = (this.point - b.point).normalize(overlap * 0.015);
+			this.vector += direc;
+			b.vector -= direc;
+
+			this.calcBounds(b);
+			b.calcBounds(this);
+			this.updateBounds();
+			b.updateBounds();
+		}
+	},
+
+	getBoundOffset: function(b) {
+		var diff = this.point - b;
+		var angle = (diff.angle + 180) % 360;
+		return this.boundOffset[Math.floor(angle / 360 * this.boundOffset.length)];
+	},
+
+	calcBounds: function(b) {
+		for (var i = 0; i < this.numSegment; i ++) {
+			var tp = this.getSidePoint(i);
+			var bLen = b.getBoundOffset(tp);
+			var td = tp.getDistance(b.point);
+			if (td < bLen) {
+				this.boundOffsetBuff[i] -= (bLen  - td) / 2;
+			}
+		}
+	},
+
+	getSidePoint: function(index) {
+		return this.point + this.sidePoints[index] * this.boundOffset[index];
+	},
+
+	updateBounds: function() {
+		for (var i = 0; i < this.numSegment; i ++)
+			this.boundOffset[i] = this.boundOffsetBuff[i];
+	}
+};
+
+//--------------------- main ---------------------
+
+var balls = [];
+var numBalls = 180;
+for (var i = 0; i < numBalls; i++) {
+	var position = Point.random() * view.size;
+	var vector = new Point({
+		angle: 360 * Math.random(),
+		length: Math.random() * 10
+	});
+	var radius = Math.random() * 60 + 6;
+	balls.push(new Ball(radius, position, vector));
+}
+
+function onFrame() {
+	for (var i = 0; i < balls.length - 1; i++) {
+		for (var j = i + 1; j < balls.length; j++) {
+			balls[i].react(balls[j]);
+		}
+	}
+	for (var i = 0, l = balls.length; i < l; i++) {
+		balls[i].iterate();
+	}
+}
+  </script>  
+  
+</body>
+
 </html>
