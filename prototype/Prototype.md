@@ -1,6 +1,6 @@
 # Capture d'écran pour chaque vue
 
-* Vue lister-endroit  
+* Vue lister-endroit (accueil)
 ![Book logo](/prototype/page-liste.png)  
 * Vue endroit  
 ![Book logo](/prototype/endroit.png)  
