@@ -13,3 +13,20 @@
     margin-top: 8px;
     vertical-align: middle;
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  position:absolute;
+   left:0;
+   top:0;
+   z-index:-1;
+}
+#fillCanvas {
+	position:fixed;
+    width: 100%; 
+	height: 2200px; 
+	background: #000; 
+}

@@ -1,0 +1,99 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where's the spot ?</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="decoration/css/bootstrap.min.css" >
+    <!-- Fonts -->
+    <link rel="stylesheet" type="text/css" href="decoration/fonts/line-icons.css">
+    <!-- Slicknav -->
+    <link rel="stylesheet" type="text/css" href="decoration/css/slicknav.css">
+    <!-- Off Canvas Menu -->
+    <link rel="stylesheet" type="text/css" href="decoration/css/menu_sideslide.css">
+    <!-- Color Switcher -->
+    <link rel="stylesheet" type="text/css" href="decoration/css/vegas.min.css">
+    <!-- Animate -->
+    <link rel="stylesheet" type="text/css" href="decoration/css/animate.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" type="text/css" href="decoration/css/main.css">
+    <!-- Responsive Style -->
+    <link rel="stylesheet" type="text/css" href="decoration/css/responsive.css">
+</head>
+<body class="">
+
+    <div class="bg-wraper overlay has-vignette">
+        <div id="example" class="slider opacity-50 vegas-container" style="height: 983px;"></div>
+    </div>
+
+    <section class="countdown-timer">
+        <h2 class="text-center text-white">Liste d'endroits</h2>
+
+        <div class="mt-1 ms-1 mx-1">
+            <a type="button" class="btn btn-success mt-1" href="ajouter-endroit.html">Ajouter un endroit</a>
+            <form class="d-flex" role="search">
+                <input class="form-control" type="search" placeholder="Rechercher" aria-label="Rechercher">
+            </form>
+        </div>
+
+        <div class="mx-3 mt-5">
+            <a href="liste-details.html" style="text-decoration:none">
+                <div class="card bg-dark my-1">
+                    <div class="card-body text-white row">
+                        <p  class="col-6 align-self-center lead">Endroit 1</p>
+                        <img class="img-responsive col-6" src="decoration/illustration/exemple.jpg" alt="Exemple"></img>   
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" style="text-decoration:none">
+                <div class="card bg-dark my-1">
+                    <div class="card-body text-white row">
+                        <p  class="col-6 align-self-center lead">Endroit 2</p>
+                        <img class="img-responsive col-6" src="decoration/illustration/exemple.jpg" alt="Exemple"></img>   
+                    </div>
+                </div>
+            </a>
+
+            <div class="card bg-dark my-1">
+                <div class="card-body text-white row">
+                    <p  class="col-6 align-self-center lead">Endroit 3</p>
+                    <img class="img-responsive col-6" src="decoration/illustration/exemple.jpg" alt="Exemple"></img>   
+                </div>
+            </div>
+        </div>
+    </section>
+  
+      <script src="https://kit.fontawesome.com/4901acba97.js" crossorigin="anonymous"></script>
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="js/jquery-min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/vegas.min.js"></script>
+      <script src="js/jquery.countdown.min.js"></script>
+      <script src="js/classie.js"></script>
+      <script src="js/jquery.nav.js"></script>
+      <script src="js/jquery.easing.min.js"></script> 
+      <script src="js/wow.js"></script>
+      <script src="js/jquery.slicknav.js"></script>
+      <script src="js/main.js"></script>
+      <script src="js/form-validator.min.js"></script>
+      <script src="js/contact-form-script.min.js"></script>
+  
+      <script type="text/javascript">
+        $("#example").vegas({
+            timer: false,
+            delay: 10000,
+            transitionDuration: 2000,
+            transition: "blur",
+            slides: [
+                { src: "decoration/illustration/img1.jpg" },
+                { src: "decoration/illustration/img2.jpg" },
+                { src: "decoration/illustration/img3.jpg" }
+            ]
+        });
+      </script>
+</body>
+</html>
