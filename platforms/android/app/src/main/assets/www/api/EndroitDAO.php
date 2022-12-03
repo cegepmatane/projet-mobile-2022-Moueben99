@@ -1,42 +1,41 @@
 <?php
+
+include_once 'secret/connexion.php';
+
 class EndroitDAO extends Connexion implements EndroitSQL{
 
     public static function listerEndroit(){
 
         $basededonnees = EndroitDAO::initialiser();
-        $demandeContrats = $basededonnees->prepare('SELECT * FROM endroit');
+        $demandeContrats = $basededonnees->prepare(EndroitDAO::SQL_LISTER_ENDROIT);
         $demandeContrats->execute();
         $endroits = $demandeContrats->fetchAll(PDO::FETCH_ASSOC);
         $contrats = [];
         foreach($endroits as $endroit) $contrats[] = new Endroit($endroit);
-        $json = json_encode($contrats);
-        return $json;
+
+        return $contrats;
     }
 
     public static function listerDetailEndroit($id){
 
         $basededonnees = EndroitDAO::initialiser();
-        $demandeContrats = $basededonnees->prepare('SELECT * FROM endroit WHERE id = :id');
+        $demandeContrats = $basededonnees->prepare(EndroitDAO::SQL_DETAIL_ENDROIT);
         $demandeContrats->bindParam(':id', $id, PDO::PARAM_INT);
         $demandeContrats->execute();
         $endroits = $demandeContrats->fetchAll(PDO::FETCH_ASSOC);
         $contrats = [];
         foreach($endroits as $endroit) $contrats[] = new Endroit($endroit);
-        $json = json_encode($contrats);
-        return $json;
+
+        return $contrats;
     }
 
-    public static function ajouterEndroit($json){
+    public static function ajouterEndroit($endroit){
 
         $basededonnees = EndroitDAO::initialiser();
-        json_decode($json, true);
 
-        $demandeContrats = $basededonnees->prepare('INSERT INTO endroit(titre, description, position, image, id_endroit) VALUES(:titre, :description, :position, :image, :id_endroit)');
-        $demandeContrats->bindParam(':titre', $json->titre, PDO::PARAM_STR);
-        $demandeContrats->bindParam(':description', $json->description, PDO::PARAM_STR);
-        $demandeContrats->bindParam(':position', $json->position, PDO::PARAM_STR);
-        $demandeContrats->bindParam(':image', $json->image, PDO::PARAM_STR);
-        $demandeContrats->bindParam(':id_endroit', $json->id_endroit, PDO::PARAM_INT);
+        $demandeContrats = $basededonnees->prepare(EndroitDAO::SQL_AJOUTER_ENDROIT);
+        $demandeContrats->bindParam(':titre', $endroit->titre, PDO::PARAM_STR);
+        $demandeContrats->bindParam(':description', $endroit->description, PDO::PARAM_STR);
         $demandeContrats->execute();
     }
 }
