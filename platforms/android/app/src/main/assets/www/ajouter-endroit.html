@@ -23,13 +23,10 @@
     <link rel="stylesheet" type="text/css" href="decoration/css/main.css">
     <!-- Responsive Style -->
     <link rel="stylesheet" type="text/css" href="decoration/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="decoration/css/style.css">
 
   </head>
-  <body>
-
-    <div class="bg-wraper overlay has-vignette">
-      <div id="example" class="slider opacity-50 vegas-container" style="height: 983px;"></div>
-    </div>
+  <body class="bg-dark">
 
     <!-- Coundown Section Start -->
     <section class="countdown-timer">
@@ -90,7 +87,6 @@
     <!-- End Preloader -->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/geolocalisation.js"></script>
     <script src="js/map.js"></script>
     <script src="js/jquery-min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -105,21 +101,6 @@
     <script src="js/main.js"></script>
     <script src="js/form-validator.min.js"></script>
     <script src="js/contact-form-script.min.js"></script>
-    <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
-
-    <script type="text/javascript">
-      $("#example").vegas({
-          timer: false,
-          delay: 6000,
-          transitionDuration: 2000,
-          transition: "blur",
-          slides: [
-              { src: "decoration/illustration/img1.jpg" },
-              { src: "decoration/illustration/img2.jpg" },
-              { src: "decoration/illustration/img3.jpg" }
-          ]
-      });
-    </script>
       
   </body>
 </html>
