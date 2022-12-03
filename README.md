@@ -1,14 +1,13 @@
 # Where's the spot ?
-Application permettant d'ajouter des lieux visité, avec un plan google maps et des photos.
+Application permettant d'ajouter des lieux visité, avec des photos.
 # Architecture imposée Cordova
 Architecture MVC + DAO 
 # 1 Gesture au choix 
-swipe entre les photos
+rotation d'une photo
 # Données distantes au choix (au moins 2)
-Service de données JSON
-Base de donnée sur vps pour permettre aux utilisateurs ajouter et lister les endroits et les positions sur google maps
+Service de données xml
+Base de donnée sur vps pour permettre aux utilisateurs ajouter et lister les endroits avec des photos
 # Librairie graphique externe au choix 
-Google Map pour afficher les positions des endroits
+Paper.js pour faire une animation en background de la page d'accueil
 # 1 Composant de l’appareil au choix
-Capteur: gps pour ajouter la position courrante
-photos enregistrées (possiblement) pour ajouter les photos à partir de l'appareil
+Accéder aux photos sur l'appareil
