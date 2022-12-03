@@ -6,19 +6,7 @@ class Application {
 
         this.vueAjouterEndroit = vueAjouterEndroit;
 
-        this.naviguer();
-        this.window.addEventListener("hashchange", () =>this.naviguer());
-    }
-
-    naviguer(){
-        let hash = window.location.hash;
-
-        if(!hash){
-            this.vueListeEndroit.afficher();
-        }
-        else if(hash.match(/^#ajouter/)){
-            this.vueAjouterEndroit.afficher();
-        }
+  
     }
 
 }

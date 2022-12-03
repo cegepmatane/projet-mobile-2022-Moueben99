@@ -1,6 +1,6 @@
 class VueListeEndroit{
     constructor(){
-        this.hmtl = document.getElementById("html-vue-liste-endroit").innerHTML;
+        
 
     }
 

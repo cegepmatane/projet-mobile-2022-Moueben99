@@ -1,6 +1,6 @@
 class VueAjouterEndroit{
     constructor(){
-        this.hmtl = document.getElementById("html-vue-ajouter-endroit").innerHTML;
+        
 
     }
 
