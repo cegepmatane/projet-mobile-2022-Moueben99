@@ -25,6 +25,13 @@
     <link rel="stylesheet" type="text/css" href="decoration/css/responsive.css">
     <link rel="stylesheet" type="text/css" href="decoration/css/style.css">
 
+    <!--js-->
+    <!--<script src="cordova.js"></script>-->
+    <script src="modele/Endroit.js"></script>
+    <script src="donnee/EndroitDAO.js"></script>
+    <script src="vue/VueAjouterEndroit.js"></script>
+    <script src="vue/VueListeEndroit.js"></script>
+    <script defer src="Application.js"></script>
   </head>
   <body class="bg-dark">
 
@@ -43,30 +50,32 @@
             Vous pouvez appuyer sur le bouton quitter pour retourner à la liste d'endroit.
             </p></br>
 
-            <!--Les quatres champs avec Bootstrap-->
-            <div class="mb-3 row">
-                <label for="titre" class="col-sm-2 col-form-label">Titre</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="titre" placeholder="Le parc des îles de Matane">
-                </div>
-            </div>
+            <form id="formulaire-endroit">
+              <div class="mb-3 row">
+                  <label for="titre" class="col-sm-2 col-form-label">Titre</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="titre" placeholder="Le parc des îles de Matane">
+                  </div>
+              </div>
 
-            <div class="mb-3 row">
-                <label for="description" class="col-sm-2 col-form-label">Description</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="description">
-                </div>
-            </div></br>
+              <div class="mb-3 row">
+                  <label for="description" class="col-sm-2 col-form-label">Description</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="description">
+                  </div>
+              </div></br>
 
-            <div class="mb-3">
-                <label for="formFile" class="form-label">Choisir une image ci-dessous :</label>
-                <input class="form-control" type="file" id="formFile">
-            </div>
+              <div class="mb-3">
+                  <label for="formFile" class="form-label">Choisir une image ci-dessous :</label>
+                  <input class="form-control" type="file" id="image">
+              </div>
 
-            <div class="button-group">
-              <a href="valider-endroit.html" class="btn btn-common">Ajouter cet endroit</a>
-              <a href="index.html" class="btn btn-border">Quitter</a>
-            </div>
+              <div class="button-group">
+                <!--href="valider-endroit.html"-->
+                <input class="btn btn-common" type="submit" id="ajouter" value="Ajouter cet endroit"></input>
+                <a href="index.html" class="btn btn-border">Quitter</a>
+              </div>
+            </form>
 
             <div class="social mt-4">
               <a class="facebook" href="#"><i class="lni-facebook-filled"></i></a>
@@ -87,7 +96,6 @@
     <!-- End Preloader -->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/map.js"></script>
     <script src="js/jquery-min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
