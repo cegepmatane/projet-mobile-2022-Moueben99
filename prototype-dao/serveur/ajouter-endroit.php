@@ -1,5 +1,5 @@
 <?php
-include_once 'donnee/EndroitDAO.php';
+/*include_once 'donnee/EndroitDAO.php';
 
 if(isset($_SERVER["HTTP_ORIGIN"]))
 {
@@ -20,4 +20,4 @@ if($_SERVER["REQUEST_METHOD"] == "OPTIONS")
     exit(0);
 }
 
-EndroitDAO::ajouterEndroit($_POST);
+$id = EndroitDAO::ajouterEndroit($_POST);*/
