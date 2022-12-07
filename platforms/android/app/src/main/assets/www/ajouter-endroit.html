@@ -25,11 +25,14 @@
     <link rel="stylesheet" type="text/css" href="decoration/css/responsive.css">
     <link rel="stylesheet" type="text/css" href="decoration/css/style.css">
 
-    <!--js-->
+     <!--js-->
     <!--<script src="cordova.js"></script>-->
     <script src="modele/Endroit.js"></script>
     <script src="donnee/EndroitDAO.js"></script>
+    <script src="modele/Images.js"></script>
+    <script src="donnee/ImageDAO.js"></script>
     <script src="vue/VueAjouterEndroit.js"></script>
+	  <script src="vue/VueAjouterImage.js"></script>
     <script src="vue/VueListeEndroit.js"></script>
     <script defer src="Application.js"></script>
   </head>
@@ -50,7 +53,7 @@
             Vous pouvez appuyer sur le bouton quitter pour retourner à la liste d'endroit.
             </p></br>
 
-            <form id="formulaire-endroit">
+            <form id="formulaire-endroit" method="post" enctype="multipart/form-data">
               <div class="mb-3 row">
                   <label for="titre" class="col-sm-2 col-form-label">Titre</label>
                   <div class="col-sm-10">
@@ -67,7 +70,7 @@
 
               <div class="mb-3">
                   <label for="formFile" class="form-label">Choisir une image ci-dessous :</label>
-                  <input class="form-control" type="file" id="image">
+                  <input class="form-control" type="file" name="images[]" multiple id="image" accept="image/*">
               </div>
 
               <div class="button-group">

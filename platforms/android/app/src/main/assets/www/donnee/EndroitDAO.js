@@ -7,7 +7,7 @@ class EndroitDAO {
 
     }
 
-    ajouter(endroit){
+    /*ajouter(endroit){
         let requette = new XMLHttpRequest();
 
         if(!requette) {
@@ -29,5 +29,5 @@ class EndroitDAO {
         requette.open('POST', "http://services.mayal.systems/ajouter-endroit.php");
         requette.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         requette.send(`titre=${encodeURIComponent(endroit.titre)}&description=${encodeURIComponent(endroit.description)}`)
-    }
+    }*/
 }
