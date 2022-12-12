@@ -1,6 +1,7 @@
 <?php
 
-include_once 'Secret/connexion.php';
+include_once 'Secret/Connexion.php';
+include 'EndroitSQL.php';
 
 class EndroitDAO extends Connexion implements EndroitSQL{
 
@@ -10,10 +11,8 @@ class EndroitDAO extends Connexion implements EndroitSQL{
         $demandeContrats = $basededonnees->prepare(EndroitDAO::SQL_LISTER_ENDROIT);
         $demandeContrats->execute();
         $endroits = $demandeContrats->fetchAll(PDO::FETCH_ASSOC);
-        $contrats = [];
-        foreach($endroits as $endroit) $contrats[] = new Endroit($endroit);
 
-        return $contrats;
+        return $endroits;
     }
 
     public static function listerDetailEndroit($id){
@@ -34,8 +33,12 @@ class EndroitDAO extends Connexion implements EndroitSQL{
         $basededonnees = EndroitDAO::initialiser();
 
         $demandeContrats = $basededonnees->prepare(EndroitDAO::SQL_AJOUTER_ENDROIT);
-        $demandeContrats->bindParam(':titre', $endroit->titre, PDO::PARAM_STR);
-        $demandeContrats->bindParam(':description', $endroit->description, PDO::PARAM_STR);
+        $demandeContrats->bindParam(':titre', $endroit['titre'], PDO::PARAM_STR);
+        $demandeContrats->bindParam(':description', $endroit['description'], PDO::PARAM_STR);
         $demandeContrats->execute();
+
+        $id = $basededonnees->lastInsertId();
+
+        return $id;
     }
 }

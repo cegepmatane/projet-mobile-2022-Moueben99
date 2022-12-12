@@ -1,6 +1,5 @@
 <?php
 include_once 'donnee/ImageDAO.php';
-include_once 'donnee/EndroitDAO.php';
 
 if(isset($_SERVER["HTTP_ORIGIN"]))
 {
@@ -21,9 +20,7 @@ if($_SERVER["REQUEST_METHOD"] == "OPTIONS")
     exit(0);
 }
 
-error_log('*********************' . print_r($_FILES['files'], true));
-
-$id = EndroitDAO::ajouterEndroit($_POST);
+error_log(print_r($_FILES, true));
 
 if(isset($_FILES['files'])) {
     error_log('ici début');
@@ -53,7 +50,7 @@ if(isset($_FILES['files'])) {
 
         if(empty($errors)){
             error_log('ici sans erreurs');
-            ImageDAO::ajouterImage($fichier_images, $id);
+            ImageDAO::ajouterImage($fichier_images);
             move_uploaded_file($image_tmp, $image);
         }
     }

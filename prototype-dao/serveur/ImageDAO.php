@@ -1,28 +1,28 @@
 <?php
-include_once 'Secret/connexion.php';
+include_once 'Secret/Connexion.php';
+include_once 'ImageSQL.php';
 
 class ImageDAO extends Connexion implements ImageSQL{
+
 
     public static function listerImage($idEndroit){
 
         $basededonnees = ImageDAO::initialiser();
-        $demandeContrats = $basededonnees->prepare();
+        $demandeContrats = $basededonnees->prepare(ImageDAO::SQL_LISTER_IMAGE);
         $demandeContrats->bindParam(':id_endroit', $idEndroit, PDO::PARAM_INT);
-        $demandeContrats->execute(ImageDAO::SQL_LISTER_IMAGE);
-        $images = $demandeContrats->fetchAll(PDO::FETCH_ASSOC);
-        $contrats = [];
-        foreach($images as $image) $contrats[] = new Image($image);
+        $demandeContrats->execute();
+        $images = $demandeContrats->fetch(PDO::FETCH_ASSOC);
 
-        return $contrats;
+        return $images;
     }
 
-    public static function ajouterEndroit($image){
+    public static function ajouterImage($image){
 
         $basededonnees = ImageDAO::initialiser();
 
         $demandeContrats = $basededonnees->prepare(ImageDAO::SQL_AJOUTER_IMAGE );
-        $demandeContrats->bindParam(':image', $image->image, PDO::PARAM_STR);
-        $demandeContrats->bindParam(':id_endroit', $image->id_endroit, PDO::PARAM_INT);
+        $demandeContrats->bindParam(':image', $image, PDO::PARAM_STR);
+        //$demandeContrats->bindParam(':id_endroit', $id, PDO::PARAM_INT);
         $demandeContrats->execute();
     }
 }
