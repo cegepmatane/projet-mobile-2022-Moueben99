@@ -1,6 +1,7 @@
 class EndroitDAO {
     constructor(){
         this.listeEndroit = [];
+        this.vueListeEndroit = new VueListeEndroit();
     }
 
     lister(){
@@ -13,29 +14,22 @@ class EndroitDAO {
         }
         requette.open('GET', "http://services.mayal.systems/lister-endroit.php", true);
         requette.send();
-        requette.onreadystatechange = function(){
+        requette.onreadystatechange = () => {
             if(requette.readyState == 4 && requette.status == 200){
-                console.log(requette.responseText);
-                let liste = requette.responseText;
-
+                //console.log(requette.responseText);
+                let liste = JSON.parse(requette.responseText);
+                //console.log(liste);
                 for(let i in liste){
-                    this.listeEndroit[i].titre = liste[i].titre;
+                    //console.log(liste[i]);
+                    console.log(this.listeEndroit);
+                    this.listeEndroit[i] = liste[i];
 
                     console.log('titre endroit de EndroitDAO : ' + this.listeEndroit[i].titre);
                 }
+
+                this.vueListeEndroit.afficher(this.listeEndroit);
             }
         }
-
-        /*for(let i in this.listeEndroit){
-            let endroit = new Endroit(this.listeEndroit[i].titre,
-                this.listeEndroit[i].image,
-                this.listeEndroit[i].id);
-
-            this.listeEndroit[endroit.id] = endroit;
-
-            console.log('titre endroit de EndroitDAO : ' + this.listeEndroit[i].titre);
-        }*/
-        return this.listeEndroit;
     }
 
     ajouter(endroit){

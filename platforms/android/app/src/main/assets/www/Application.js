@@ -7,8 +7,9 @@ class Application {
         this.imageDAO = imageDAO;
 
         this.vueListeEndroit = vueListeEndroit;
-        this.vueListeEndroit.initialiserListeEndroit(this.endroitDAO.lister());
-        this.vueListeEndroit.afficher();
+        this.endroitDAO.lister();
+        //this.vueListeEndroit.initialiserListeEndroit(this.endroitDAO.lister());
+        //this.vueListeEndroit.afficher();
     }
 
 }
