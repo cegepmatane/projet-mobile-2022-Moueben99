@@ -1,12 +1,12 @@
 class EndroitDAO {
     constructor(){
         this.listeEndroit = [];
+        this.listeEndroitDetail = [];
         this.vueListeEndroit = new VueListeEndroit();
+        this.vueListeEndroitDetail = new VueListeEndroitDetail();
     }
 
     lister(){
-        console.log("EndroitDAO");
-
         let requette = new XMLHttpRequest();
         
         if(!requette){
@@ -28,6 +28,32 @@ class EndroitDAO {
                 }
 
                 this.vueListeEndroit.afficher(this.listeEndroit);
+            }
+        }
+    }
+
+    listerDetail(id){
+        let requette = new XMLHttpRequest();
+        
+        if(!requette){
+            return null;
+        }
+        requette.open('GET', "http://services.mayal.systems/lister-detail-endroit.php?id=" + id, true);
+        requette.send();
+        requette.onreadystatechange = () => {
+            if(requette.readyState == 4 && requette.status == 200){
+
+                let liste = JSON.parse(requette.responseText);
+
+                for(let i in liste){
+
+                    console.log(this.listeEndroitDetail);
+                    this.listeEndroitDetail[i] = liste[i];
+
+                    console.log('titre endroit de EndroitDAO : ' + this.listeEndroitDetail[i].titre);
+                }
+
+                this.vueListeEndroitDetail.afficher(this.listeEndroitDetail);
             }
         }
     }

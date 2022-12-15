@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="decoration/css/lightbox.min.css">
+    <!--<link rel="stylesheet" href="decoration/css/lightbox.min.css">-->
     <link rel="stylesheet" href="decoration/css/style.css">
     
     <title>Where's the spot ?</title>
@@ -28,49 +28,26 @@
      <link rel="stylesheet" type="text/css" href="decoration/css/responsive.css">
      <!--Gesture Rotation-->
     <link rel="stylesheet" type="text/css" href="./decoration/css/gesture_rotate.css">
+    <!--<script src="cordova.js"></script>-->
+    <script src="modele/Endroit.js"></script>
+    <script src="donnee/EndroitDAO.js"></script>
+	<script src="modele/Images.js"></script>
+	<script src="donnee/ImageDAO.js"></script>
+    <script src="vue/VueListeEndroit.js"></script>
+	<script src="vue/VueListeEndroitDetail.js"></script>
+    <script defer src="ApplicationDetail.js"></script>
 </head>
 <body class="bg-dark mt-2 text-white lead text-center mx-2">
-    <h1>Endroit 1</h1>
-    <p class="mt-2 mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
 
-    <div class="collection-images">
-        <div class="range-images">
-            <a class="" href="decoration/illustration/exemple.jpg" data-lightbox="endroit" data-title="">
-                <img class="img-fluid" src="decoration/illustration/exemple.jpg" alt=""/>
-            </a>
-            <a class="" href="decoration/illustration/exemple2.jpg" data-lightbox="endroit" data-title="">
-                <img class="img-fluid" src="decoration/illustration/exemple2.jpg" alt=""/>
-            </a>
-        </div>
-        <div class="range-images">
-            <a class="" href="decoration/illustration/exemple2.jpg" data-lightbox="endroit" data-title="">
-                <img class="img-fluid" src="decoration/illustration/exemple2.jpg" alt=""/>
-            </a>
-            <a class="" href="decoration/illustration/exemple.jpg" data-lightbox="endroit" data-title="">
-                <img class="img-fluid" src="decoration/illustration/exemple.jpg" alt=""/>
-            </a>
-        </div>
-
-        <div class="range-images">
-            <div id="rotate-container">
-                <div id="rotatable">
-                    <a class="" href="decoration/illustration/exemple.jpg" data-lightbox="endroit" data-title="">
-                        <img class="img-fluid" src="decoration/illustration/exemple.jpg" alt=""/>
-                    </a>
-                    <a class="" href="decoration/illustration/exemple2.jpg" data-lightbox="endroit" data-title="">
-                        <img class="img-fluid" src="decoration/illustration/exemple2.jpg" alt=""/>
-                    </a>
-                </div>
-            </div>
-            <div id="interaction"></div>
-        </div>
+    <div id="endroit">
+        
     </div>
 
     <a type="button" class="btn btn-success mt-1 col-5" href="index.html">Revenir à la liste</a>
     
     
     <script src="https://kit.fontawesome.com/4901acba97.js" crossorigin="anonymous"></script>
-    <script src="js/lightbox-plus-jquery.min.js"></script>
+    <!--<script src="js/lightbox-plus-jquery.min.js"></script>-->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src='./js/zingtouch.js'></script>
     <script src="./js/gesture-rotate.js"></script>
