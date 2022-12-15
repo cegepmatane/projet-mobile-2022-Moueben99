@@ -34,6 +34,36 @@ Nous devons aussi ajouter le champ au SQL.
 const SQL_AJOUTER_ENDROIT = 'INSERT INTO endroit(titre, description, ville) VALUES(:titre, :description :ville)';
 ````
 
+## Modifier les scripts js
+
+Dans la classe EndroitDAO, nous devons ajouterle nouveau champ à la fonction ajouter.
+
+````
+    ajouter(endroit){
+        let requette = new XMLHttpRequest();
+
+        if(!requette) {
+            return null;
+        }
+        requette.onreadystatechange = function(){
+
+            if (requette.readyState === XMLHttpRequest.DONE) {
+                if(requette.status === 200){
+                    //alert(requette.responseText);
+                }
+                else {
+                    alert(requette.responseText);
+                    return null;
+                }
+            }
+        }
+
+        requette.open('POST', "http://services.mayal.systems/ajouter-endroit.php");
+        requette.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        requette.send(`titre=${encodeURIComponent(endroit.titre)}&description=${encodeURIComponent(endroit.description)}&ville=${encodeURIComponent(endroit.ville)}`)
+    }
+````
+
 ## Intégrer les In-app updates
 
 Nous allons utiliser ce plugin pour intégrer les In-app updates à cordova : https://www.npmjs.com/package/cordova-in-app-update?activeTab=readme
