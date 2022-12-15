@@ -12,7 +12,8 @@ Script à exécuter une fois sur le serveur en appelant l'url dans coter client 
 include_once 'Secret/Connexion.php'; //inclure le code de connexion
 
 $basededonnees = Connexion::initialiser();
-$demandeContrats = $basededonnees->prepare(ALTER TABLE `endroit` ADD `ville` VARCHAR(255) NOT NULL DEFAULT 'Inconnue' AFTER `description`); //valeur par défault pour que tous les champs aillent une valeur
+//inclue une valeur par défault pour que tous les anciennes entrées aillent une valeur
+$demandeContrats = $basededonnees->prepare(ALTER TABLE `endroit` ADD `ville` VARCHAR(255) NOT NULL DEFAULT 'Inconnue' AFTER `description`);
 $demandeContrats->execute();
 ````
 
