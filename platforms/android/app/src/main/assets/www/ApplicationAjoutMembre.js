@@ -1,7 +1,7 @@
 class Application {
-    constructor(window, authentificationDAO, connexionDAO) {
+    constructor(window, membreDAO, connexionDAO) {
         this.window = window;
-        this.authentificationDAO = authentificationDAO;
+        this.membreDAO = membreDAO;
         this.connexionDAO = connexionDAO;
 
         this.vueAjouterMembre = vueAjouterMembre;
@@ -12,7 +12,7 @@ class Application {
     }
 
     actionAjouterMembre(membre){
-        this.authentificationDAO.ajouter(membre);
+        this.membreDAO.ajouter(membre);
     }
 
     vueAjouterAutorisation(autorisation){
@@ -20,4 +20,4 @@ class Application {
     }
 }
 
-new Application(window, new AuthentificationDAO(), new AutorisationDAO(), new VueAjouterAuthentification(), new VueAjouterAutorisation());
+new Application(window, new MembreDAO(), new AutorisationDAO(), new VueAjouterMembre(), new VueAjouterAutorisation());

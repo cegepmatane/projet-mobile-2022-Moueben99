@@ -1,11 +1,11 @@
-class AuthentificationDAO {
+class MembreDAO {
     constructor(){
         this.listeMembre = [];
         this.vueListeMembre = new vueListeMembre();
     }
 
     lister(){
-        console.log("AuthentificationDAO");
+        console.log("MembreDAO");
 
         let requette = new XMLHttpRequest();
         
@@ -24,7 +24,7 @@ class AuthentificationDAO {
                     console.log(this.listeMembre);
                     this.listeMembre[i] = liste[i];
 
-                    console.log('membre de AuthentificationDAO : ' + this.listeMembre[i].titre);
+                    console.log('membre de MembreDAO : ' + this.listeMembre[i].titre);
                 }
 
                 this.vueListeMembre.afficher(this.listeMembre);
@@ -51,8 +51,8 @@ class AuthentificationDAO {
             }
         }
 
-        requette.open('POST', "http://services.mayal.systems/ajouter-endroit.php");
+        requette.open('POST', "http://services.mayal.systems/ajouter-membre.php");
         requette.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        requette.send(`nom=${encodeURIComponent(membre.nom)}&mdp=${encodeURIComponent(membre.mdp)}`)
+        requette.send(`pseudo=${encodeURIComponent(membre.pseudo)}&mdp=${encodeURIComponent(membre.mdp)}`)
     }
 }

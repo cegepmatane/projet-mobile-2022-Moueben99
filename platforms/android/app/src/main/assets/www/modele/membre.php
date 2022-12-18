@@ -5,17 +5,15 @@ class Membre
 	public static $filtres = 
 		array(
 			'id' => FILTER_VALIDATE_INT,
-			'md5' => FILTER_SANITIZE_STRING,
+			'mdp' => FILTER_SANITIZE_STRING,
             'nom' => FILTER_SANITIZE_STRING,
-            'courriel' => FILTER_VALIDATE_EMAIL,
-            'confirmation_md5' => FILTER_SANITIZE_STRING,
+			'confirmation_mdp' => FILTER_SANITIZE_STRING,
 			'pseudo' => FILTER_SANITIZE_STRING,
 		);
 		
-	protected $md5;
+	protected $mdp;
 	protected $nom;
-    protected $courriel;
-    protected $confirmation_md5;
+	protected $confirmation_mdp;
     protected $pseudo;
 	
 	public $erreurs = [];
@@ -28,10 +26,9 @@ class Membre
 		$tableau = filter_var_array($tableau, Membre::$filtres);
 
 		$this->id = $tableau['id'];
-		$this->md5 = $tableau['md5'];
+		$this->mdp = $tableau['mdp'];
 		$this->nom = $tableau['nom'];
-        $this->courriel = $tableau['courriel'];
-        $this->confirmation_md5 = $tableau['confirmation_md5'];
+        $this->confirmation_mdp = $tableau['confirmation_mdp'];
         $this->pseudo = $tableau['pseudo'];
 
 		$verifie = $this->verifierMotDePasse($authentifier);
@@ -43,11 +40,11 @@ class Membre
 	
 	public function verifierMotDePasse($authentifier){
 		if($authentifier){
-			return password_verify($this->confirmation_md5, $this->md5);
+			return password_verify($this->confirmation_mdp, $this->mdp);
 		}
 		else {
-			$this->md5 = password_hash ($this->md5, PASSWORD_DEFAULT);
-			return password_verify($this->confirmation_md5, $this->md5);
+			$this->mdp = password_hash ($this->mdp, PASSWORD_DEFAULT);
+			return password_verify($this->confirmation_mdp, $this->mdp);
 		}
 	}
 	
@@ -59,9 +56,6 @@ class Membre
 		}
 		if(empty($this->nom)){
 			$this->erreurs[] = "Veuillez entrer une valeur pour le nom !";
-		}
-		if(empty($this->courriel)){
-			$this->erreurs[] = "Veuillez entrer un courriel valide !";
 		}
 		if(empty($this->pseudo)){
 			$this->erreurs[] = "Veuillez entrer un pseudo !";
@@ -83,17 +77,14 @@ class Membre
 			case 'id':
 				$this->id = $valeur;
 			break;
-			case 'md5':
-				$this->md5 = $valeur;
+			case 'mdp':
+				$this->mdp = $valeur;
 			break;
 			case 'nom':
 				$this->nom = $valeur;
 			break;
-            case 'courriel':
-				$this->courriel = $valeur;
-			break;
-            case 'confirmation_md5':
-				$this->confirmation_md5 = $valeur;
+            case 'confirmation_mdp':
+				$this->confirmation_mdp = $valeur;
 			break;
             case 'pseudo':
 				$this->pseudo = $valeur;
