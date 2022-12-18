@@ -8,8 +8,6 @@ class Application {
 
         this.vueListeEndroit = vueListeEndroit;
         this.endroitDAO.lister();
-        //this.vueListeEndroit.initialiserListeEndroit(this.endroitDAO.lister());
-        //this.vueListeEndroit.afficher();
     }
 
 }
