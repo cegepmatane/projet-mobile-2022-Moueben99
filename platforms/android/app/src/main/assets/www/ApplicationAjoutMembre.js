@@ -1,5 +1,6 @@
 class Application {
     constructor(window, membreDAO, vueAjouterMembre) {
+        console.log("ApplicationAjoutMembre");
         this.window = window;
         this.membreDAO = membreDAO;
 
@@ -8,6 +9,7 @@ class Application {
     }
 
     actionAjouterMembre(membre){
+        console.log("ici!!");
         this.membreDAO.ajouter(membre);
     }
 }

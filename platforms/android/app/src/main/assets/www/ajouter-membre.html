@@ -24,13 +24,10 @@
     <link rel="stylesheet" type="text/css" href="decoration/css/style.css">
     <!--js-->
     <!--<script src="cordova.js"></script>-->
-    <!--<script src="modele/Endroit.js"></script>
-    <script src="donnee/EndroitDAO.js"></script>
-	<script src="modele/Images.js"></script>
-	<script src="donnee/ImageDAO.js"></script>
-    <script src="vue/VueListeEndroit.js"></script>
-	<script src="vue/VueListeEndroitDetail.js"></script>
-    <script defer src="Application.js"></script>-->
+    <script src="modele/Membre.js"></script>
+    <script src="donnee/MembreDAO.js"></script>
+    <script src="vue/VueAjouterMembre.js"></script>
+    <script defer src="ApplicationAjoutMembre.js"></script>
 </head>
 
 <body class="bg-dark mt-2 text-white text-center mx-2">
@@ -38,7 +35,7 @@
     <section class="countdown-timer">
         <h2 class="text-center text-white">Créer un compte</h2>
 
-        <form id="formulaire-endroit" method="post" enctype="multipart/form-data">
+        <form id="formulaire-membre" method="post">
             <div class="mb-3 row">
                 <label for="titre" class="col-sm-2 col-form-label">Nom</label>
                 <div class="col-sm-10">

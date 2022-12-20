@@ -1,6 +1,6 @@
 class VueAjouterMembre{
     constructor(){
-        document.getElementById("confirmer").addEventListener("submit", evenement => this.authentifier(evenement));
+        document.getElementById("formulaire-membre").addEventListener("submit", evenement => this.ajouterMembre(evenement));
         this.actionAjouterMembre = null;
     }
 
@@ -8,13 +8,15 @@ class VueAjouterMembre{
         this.actionAjouterMembre = actionAjouterMembre;
     }
 
-    authentifier(evenement) {
+    ajouterMembre(evenement) {
         evenement.preventDefault();
 
         let pseudo = document.getElementById("pseudo").value;
         let mdp = document.getElementById("mdp").value;
         let courriel = document.getElementById("courriel").value;
         let nom = document.getElementById("nom").value;
+
+        console.log("VueAjoutMembre" + nom);
 
         this.actionAjouterMembre(new Membre(pseudo, mdp, courriel, nom, null));
     }
