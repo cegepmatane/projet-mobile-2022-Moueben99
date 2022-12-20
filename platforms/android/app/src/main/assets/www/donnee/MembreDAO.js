@@ -1,10 +1,10 @@
 class MembreDAO {
     constructor(){
-        this.listeMembre = [];
-        this.vueListeMembre = new vueListeMembre();
+        //this.listeMembre = [];
+        //this.vueListeMembre = new vueListeMembre();
     }
 
-    lister(){
+    /*lister(){
         console.log("MembreDAO");
 
         let requette = new XMLHttpRequest();
@@ -30,7 +30,7 @@ class MembreDAO {
                 this.vueListeMembre.afficher(this.listeMembre);
             }
         }
-    }
+    }*/
 
     ajouter(membre){
         let requette = new XMLHttpRequest();
@@ -42,7 +42,7 @@ class MembreDAO {
 
             if (requette.readyState === XMLHttpRequest.DONE) {
                 if(requette.status === 200){
-                    //alert(requette.responseText);
+                    alert(requette.responseText);
                 }
                 else {
                     alert(requette.responseText);
@@ -53,6 +53,6 @@ class MembreDAO {
 
         requette.open('POST', "http://services.mayal.systems/ajouter-membre.php");
         requette.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        requette.send(`pseudo=${encodeURIComponent(membre.pseudo)}&mdp=${encodeURIComponent(membre.mdp)}`)
+        requette.send(`pseudo=${encodeURIComponent(membre.pseudo)}&mdp=${encodeURIComponent(membre.mdp)}&courriel=${encodeURIComponent(membre.courriel)}&nom=${encodeURIComponent(membre.nom)}`)
     }
 }
