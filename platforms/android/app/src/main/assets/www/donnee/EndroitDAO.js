@@ -2,7 +2,6 @@ class EndroitDAO {
     constructor(){
         this.listeEndroit = [];
         this.listeEndroitDetail = [];
-        this.vueListeEndroit = new VueListeEndroit();
         this.vueListeEndroitDetail = new VueListeEndroitDetail();
     }
 
@@ -27,6 +26,7 @@ class EndroitDAO {
                     console.log('titre endroit de EndroitDAO : ' + this.listeEndroit[i].titre);
                 }
 
+                this.vueListeEndroit = new VueListeEndroit();
                 this.vueListeEndroit.afficher(this.listeEndroit);
             }
         }
@@ -59,6 +59,7 @@ class EndroitDAO {
     }
 
     ajouter(endroit){
+        var url = window.location.href.toString();
         let requette = new XMLHttpRequest();
 
         if(!requette) {
@@ -69,6 +70,7 @@ class EndroitDAO {
             if (requette.readyState === XMLHttpRequest.DONE) {
                 if(requette.status === 200){
                     //alert(requette.responseText);
+                    window.location.href = url.replace('ajouter-endroit.html', 'valider.html');
                 }
                 else {
                     alert(requette.responseText);
