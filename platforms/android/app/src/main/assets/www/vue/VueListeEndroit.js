@@ -41,7 +41,7 @@ class VueListeEndroit{
         evenement.preventDefault();
         var url = window.location.href.toString();
 
-        if(localStorage.getItem('connecter') && localStorage.getItem('connecter') == true)
+        if(window.localStorage.getItem('connecter') && localStorage.getItem('connecter') == true)
             window.location.href = url.replace('index.html', 'ajouter-endroit.html');
         else
             window.location.href = url.replace('index.html', 'connexion-membre.html');
