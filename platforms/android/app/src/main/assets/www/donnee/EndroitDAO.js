@@ -70,7 +70,7 @@ class EndroitDAO {
             if (requette.readyState === XMLHttpRequest.DONE) {
                 if(requette.status === 200){
                     //alert(requette.responseText);
-                    window.location.href = url.replace('ajouter-endroit.html', 'valider.html');
+                    window.location.href = url.replace('ajouter-endroit.html', 'valider-endroit.html');
                 }
                 else {
                     alert(requette.responseText);
