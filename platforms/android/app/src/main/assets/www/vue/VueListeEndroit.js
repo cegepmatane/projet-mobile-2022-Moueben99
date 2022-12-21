@@ -1,5 +1,6 @@
 class VueListeEndroit{
     constructor(){
+        document.getElementById("ajouter-endroit").addEventListener("click", evenement => this.redirigerMembre(evenement));
         this.listeEndroitDonnee = null;
     }
 
@@ -34,5 +35,15 @@ class VueListeEndroit{
         }
     
         document.getElementById("liste-endroit").innerHTML = html;
+    }
+
+    redirigerMembre(evenement) {
+        evenement.preventDefault();
+        var url = window.location.href.toString();
+
+        if(localStorage.getItem('connecter') && localStorage.getItem('connecter') == true)
+            window.location.href = url.replace('index.html', 'ajouter-endroit.html');
+        else
+            window.location.href = url.replace('index.html', 'connexion-membre.html');
     }
 }
