@@ -26,30 +26,17 @@
     <!--<script src="cordova.js"></script>-->
     <script src="modele/Membre.js"></script>
     <script src="donnee/MembreDAO.js"></script>
-    <script src="vue/VueAjouterMembre.js"></script>
-    <script defer src="controleur/ApplicationAjoutMembre.js"></script>
+    <script src="vue/VueConnexionMembre.js"></script>
+    <script defer src="controleur/ApplicationConnexionMembre.js"></script>
 </head>
 
 <body class="bg-dark mt-2 text-white text-center mx-2">
 
     <section class="countdown-timer">
-        <h2 class="text-center text-white">Créer un compte</h2>
+        <h2 class="text-center text-white">Se connnecter</h2>
 
         <form id="formulaire-membre" method="post">
-            <div class="mb-3 row">
-                <label for="titre" class="col-sm-2 col-form-label">Nom</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="nom">
-                </div>
-            </div>
-
-            <div class="mb-4 row">
-                <label for="description" class="col-sm-2 col-form-label">Courriel</label>
-                <div class="col-sm-10">
-                  <input type="email" class="form-control" id="courriel">
-                </div>
-            </div>
-
+            
             <div class="mb-4 row">
                 <label for="description" class="col-sm-2 col-form-label">Pseudo</label>
                 <div class="col-sm-10">
