@@ -5,5 +5,7 @@ Du coter client le js envoie les données en ajax au coter serveur en php qui in
 
 Du coter serveur nous avons des php filters et des prepare statement pour le sql pour éviter l'injection de données non valide dans notre base de données.
 
+Pour rendre l'app plus sécuritaire nous devrions implémenté l'encription des mots de passes.
+
 Sources :
 https://www.jbvigneron.fr/parlons-dev/php-pdo-et-les-injections-sql/
