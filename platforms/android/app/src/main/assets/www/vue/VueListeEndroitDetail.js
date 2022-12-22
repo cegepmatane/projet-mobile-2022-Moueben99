@@ -33,6 +33,6 @@ class VueListeEndroitDetail{
             html += '<div id="interaction"></div>';
         }
     
-        document.getElementById("endroit").innerHTML += html;
+        document.getElementById("endroit").innerHTML = html;
     }
 }
