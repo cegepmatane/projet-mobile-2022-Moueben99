@@ -1,5 +1,6 @@
 <?php
 include_once 'donnee/ImageDAO.php';
+include_once 'modele/Image.php';
 
 if(isset($_SERVER["HTTP_ORIGIN"]))
 {
@@ -25,7 +26,7 @@ error_log(print_r($_FILES, true));
 if(isset($_FILES['files'])) {
     error_log('ici début');
     $errors = [];
-    $chemin = '/var/www/services.mayal.systems/Images/';
+    $chemin = '/var/www/www.mayal.systems/Images/';
     $extensions = ['jpg', 'jpeg', 'png', 'gif'];
 
     $total_images = count($_FILES['files']['tmp_name']);
@@ -38,7 +39,7 @@ if(isset($_FILES['files'])) {
         $image_ext = strtolower(end(explode('.', $image_nom)));
 
         $image = $chemin . $image_nom;
-        $fichier_images =  "http://services.mayal.systems/" . $image_nom;
+        $fichier_images =  "https://mayal.systems/Images/" . $image_nom;
 
         if (!in_array($image_ext, $extensions)) {
             $errors[] = 'Extension not allowed: ' . $image_nom . ' ' . $image_type;
@@ -50,6 +51,7 @@ if(isset($_FILES['files'])) {
 
         if(empty($errors)){
             error_log('ici sans erreurs');
+            //$imageModele = new Image($fichier_images);
             ImageDAO::ajouterImage($fichier_images);
             move_uploaded_file($image_tmp, $image);
         }

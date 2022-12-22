@@ -2,6 +2,11 @@
 
 include 'donnee/EndroitDAO.php';
 include 'donnee/ImageDAO.php';
+include 'modele/Endroit.php';
+
+$endroitModele = new Endroit($_GET);
+//echo $endroitModele->id;
+$id = $endroitModele->id;
 
 if(isset($_SERVER["HTTP_ORIGIN"]))
 {
@@ -23,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"] == "OPTIONS")
 }
 
 $endroitEnvoie = [];
-$endroits = EndroitDAO::listerEndroit();
+$endroits = EndroitDAO::listerDetailEndroit($id);
 $i = -1;
 //echo var_dump($endroits);
 

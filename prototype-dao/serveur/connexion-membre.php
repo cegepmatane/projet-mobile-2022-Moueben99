@@ -22,4 +22,12 @@ if($_SERVER["REQUEST_METHOD"] == "OPTIONS")
 }
 
 $membre = new Membre($_POST);
-MembreDAO::ajouterMembre($membre);
+$verifier = MembreDAO::verifierMembre($membre);
+$json = null;
+
+if(empty($verifier))
+    $json = '{"membre":"false"}';
+else if($verifier == true)
+    $json ='{"membre":' . $verifier .'}';
+
+echo $json;

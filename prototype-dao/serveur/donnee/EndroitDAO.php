@@ -22,10 +22,8 @@ class EndroitDAO extends Connexion implements EndroitSQL{
         $demandeContrats->bindParam(':id', $id, PDO::PARAM_INT);
         $demandeContrats->execute();
         $endroits = $demandeContrats->fetchAll(PDO::FETCH_ASSOC);
-        $contrats = [];
-        foreach($endroits as $endroit) $contrats[] = new Endroit($endroit);
 
-        return $contrats;
+        return $endroits;
     }
 
     public static function ajouterEndroit($endroit){
@@ -33,12 +31,12 @@ class EndroitDAO extends Connexion implements EndroitSQL{
         $basededonnees = EndroitDAO::initialiser();
 
         $demandeContrats = $basededonnees->prepare(EndroitDAO::SQL_AJOUTER_ENDROIT);
-        $demandeContrats->bindParam(':titre', $endroit['titre'], PDO::PARAM_STR);
-        $demandeContrats->bindParam(':description', $endroit['description'], PDO::PARAM_STR);
+        $demandeContrats->bindParam(':titre', $endroit->titre, PDO::PARAM_STR);
+        $demandeContrats->bindParam(':description', $endroit->description, PDO::PARAM_STR);
         $demandeContrats->execute();
 
-        $id = $basededonnees->lastInsertId();
+        //$id = $basededonnees->lastInsertId();
 
-        return $id;
+        //return $id;
     }
 }
