@@ -11,3 +11,5 @@ Base de donnée sur vps pour permettre aux utilisateurs ajouter et lister les en
 Paper.js pour faire une animation en background de la page d'accueil
 # 1 Composant de l’appareil au choix
 Accéder aux photos sur l'appareil
+
+Lien vers la vidéo YouTube : https://youtu.be/tCV5DT5XVAU  
