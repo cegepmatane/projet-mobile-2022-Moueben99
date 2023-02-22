@@ -13,3 +13,9 @@ Paper.js pour faire une animation en background de la page d'accueil
 Accéder aux photos sur l'appareil
 
 Lien vers la vidéo YouTube : https://youtu.be/tCV5DT5XVAU  
+
+
+Maintenance du site mobile réalisé en 2023:  
+Plan de maintenance du projet dans le tableau kanban sur github.  
+
+Une maintenance réalisé par Benjamin Mouëza.  
