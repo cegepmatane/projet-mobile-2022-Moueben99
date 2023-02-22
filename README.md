@@ -16,6 +16,7 @@ Lien vers la vidéo YouTube : https://youtu.be/tCV5DT5XVAU
 
 
 Maintenance du site mobile réalisé en 2023:  
-Plan de maintenance du projet dans le tableau kanban sur github.  
+Plan de maintenance du projet dans le tableau kanban sur github:  
+https://github.com/cegepmatane/projet-mobile-2022-Moueben99/issues/28  
 
 Une maintenance réalisé par Benjamin Mouëza.  
