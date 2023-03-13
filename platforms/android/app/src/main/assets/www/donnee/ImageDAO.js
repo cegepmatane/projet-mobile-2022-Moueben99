@@ -1,7 +1,7 @@
 class ImageDAO{
     ajouter(image){
         console.log(image.image)
-        fetch("https://mayal.systems/ajouter-image.php", {
+        fetch("http://51.79.70.237/serveur/ajouter-image.php", {
             method: "POST",
             body: image.image
         }).then((reponse) =>{

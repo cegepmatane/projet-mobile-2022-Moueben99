@@ -19,6 +19,9 @@ class VueListeEndroitDetail{
 
             let titre = this.listeEndroitDonnee[numeroEndroit].titre;
             let description = this.listeEndroitDonnee[numeroEndroit].description;
+            let musique = this.listeEndroitDonnee[numeroEndroit].musique;
+            let meteo = this.listeEndroitDonnee[numeroEndroit].meteo;
+            let heure = this.listeEndroitDonnee[numeroEndroit].heure;
             let image = this.listeEndroitDonnee[numeroEndroit].image;
 
             console.log('titre endroit de VueListeEndroit : ' + titre);

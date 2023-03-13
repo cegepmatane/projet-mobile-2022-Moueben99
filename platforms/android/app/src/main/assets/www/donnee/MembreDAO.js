@@ -22,7 +22,7 @@ class MembreDAO {
         }
 
         console.log("ajouter");
-        requette.open('POST', "https://mayal.systems/ajouter-membre.php");
+        requette.open('POST', "http://51.79.70.237/serveur/ajouter-membre.php");
         requette.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         requette.send(`pseudo=${encodeURIComponent(membre.pseudo)}&mdp=${encodeURIComponent(membre.mdp)}&courriel=${encodeURIComponent(membre.courriel)}&nom=${encodeURIComponent(membre.nom)}`)
     }
@@ -58,7 +58,7 @@ class MembreDAO {
             }
         }
 
-        requette.open('POST', "https://mayal.systems/connexion-membre.php");
+        requette.open('POST', "http://51.79.70.237/serveur/connexion-membre.php");
         requette.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         requette.send(`pseudo=${encodeURIComponent(membre.pseudo)}&mdp=${encodeURIComponent(membre.mdp)}`)
     }

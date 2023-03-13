@@ -14,8 +14,11 @@ class VueAjouterEndroit{
 
         let titre = document.getElementById("titre").value;
         let description = document.getElementById("description").value;
+        let musique = document.getElementById("musique").value;
+        let meteo = document.getElementById("meteo").value;
+        let heure = document.getElementById("heure").value;
 
-        this.actionAjouterEndroit(new Endroit(titre, description, null));
+        this.actionAjouterEndroit(new Endroit(titre, description, musique, meteo, heure, null));
     }
 
 }
